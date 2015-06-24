@@ -24,7 +24,7 @@ Add ``<flex-calendar options="options" events="events"></flex-calendar>`` direct
 Flex Calendar takes a few options:
 
 ```javascript
-app.controller('SchedulingController', ['$scope', function($scope) {
+app.controller('myController', ['$scope', function($scope) {
   // Dates can be passed as strings or Date objects 
   $scope.options = {
     defaultDate: "2015-06-23",
