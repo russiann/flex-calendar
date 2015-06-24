@@ -1,6 +1,6 @@
 # FlexCalendar
 
-A Elegant Calendar Built With Angular.js
+An Elegant Calendar Built With Angular.js
 
 ## Installation
 
