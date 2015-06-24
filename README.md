@@ -19,8 +19,6 @@ angular.module('App', ['flex-calendar'])
 
 ## Usage
 
-## Usage
-
 Add ``<flex-calendar options="options" events="events"></flex-calendar>`` directive to your html file.
 
 Flex Calendar takes a few options:
@@ -28,16 +26,19 @@ Flex Calendar takes a few options:
 ```javascript
 app.controller('SchedulingController', ['$scope', function($scope) {
   // Dates can be passed as strings or Date objects 
-  $scope.calendarOptions = {
+  $scope.options = {
     defaultDate: "2015-06-23",
     minDate: new Date([2015, 06, 12]),
     maxDate: new Date([2015, 12, 31]),
     dayNamesLength: 1, // 1 for "M", 2 for "Mo", 3 for "Mon"; 9 will show full day names. Default is 1.
     eventClick: function(date) {
-      // your code
+      console.log(date);
     },
     dateClick: function(date) {
-      // your code
+      console.log(date);
+    },
+    changeMonth: function(month) {
+      console.log(month);
     }
   };
   
