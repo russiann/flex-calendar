@@ -4,11 +4,49 @@ A Elegant Calendar Built With Angular.js
 
 ## Installation
 
-TODO
+Add to index.html:
+
+```html
+<link rel="stylesheet" href="path/to/flex-calendar.css">
+<script type="text/javascript" src="path/to/flex-calendar.js"></script>
+```
+
+Inject ``'russian60.flex-calendar'`` into your main module:
+
+```javascript
+angular.module('App', ['flex-calendar'])
+```
 
 ## Usage
 
-TODO
+## Usage
+
+Add ``<flex-calendar options="options" events="events"></flex-calendar>`` directive to your html file.
+
+Flex Calendar takes a few options:
+
+```javascript
+app.controller('SchedulingController', ['$scope', function($scope) {
+  // Dates can be passed as strings or Date objects 
+  $scope.calendarOptions = {
+    defaultDate: "2015-06-23",
+    minDate: new Date([2015, 06, 12]),
+    maxDate: new Date([2015, 12, 31]),
+    dayNamesLength: 1, // 1 for "M", 2 for "Mo", 3 for "Mon"; 9 will show full day names. Default is 1.
+    eventClick: function(date) {
+      // your code
+    },
+    dateClick: function(date) {
+      // your code
+    }
+  };
+  
+  $scope.events = [
+    {foo: 'bar', date: new Date([2015, 12, 31])},
+    {foo: 'bar', date: new Date([2015, 6, 4])}
+  ];
+}]);
+```
 
 ## Contributing
 
@@ -17,6 +55,10 @@ TODO
 3. Commit your changes: `git commit -am 'Add some feature'`
 4. Push to the branch: `git push origin my-new-feature`
 5. Submit a pull request :D
+
+## To Do
+
+1. Bower Package
 
 
 ## License
