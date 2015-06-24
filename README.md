@@ -49,6 +49,10 @@ app.controller('SchedulingController', ['$scope', function($scope) {
 }]);
 ```
 
+## Example
+
+[Here an example :)](http://codepen.io/Russian60/pen/MwOoqR)
+
 ## Contributing
 
 1. Fork it!
