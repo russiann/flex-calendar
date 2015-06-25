@@ -47,19 +47,18 @@
       var MONTHS = ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'];
       var WEEKDAYS = ['Domingo', 'Segunda', 'Terça', 'Quarta', 'Quinta', 'Sexta', 'Sábado'];
       var calculateSelectedDate, calculateWeeks, allowedDate, bindEvent;
+
       $scope.days = [];
       $scope.options = $scope.options || {};
       $scope.options.dayNamesLength = $scope.options.dayNamesLength || 1;
 
-      $scope.onClick = function (date, index) {
-        if (!date || date.disabled) { return; }
-        $scope.options.defaultDate = date.date;
-        if (date.event) {
-          $scope.options.eventClick(date);
-        } else {
-          $scope.options.dateClick(date);
-        }
-      };
+      $scope.onClick = onClick;
+      $scope.allowedPrevMonth = allowedPrevMonth;
+      $scope.allowedNextMonth = allowedNextMonth;
+      $scope.weekDays = weekDays;
+      $scope.isDefaultDate = isDefaultDate;
+      $scope.prevMonth = prevMonth;
+      $scope.nextMonth = nextMonth;
 
       if ($scope.options.minDate) {
         $scope.options.minDate = new Date($scope.options.minDate);
@@ -69,7 +68,31 @@
         $scope.options.maxDate = new Date($scope.options.maxDate);
       }
 
-      bindEvent = function (date) {
+      $scope.$watch('options.defaultDate', function() {
+        calculateSelectedDate();
+      });
+
+      $scope.$watch('options.disabledDates', function() {
+        calculateDisabledDates();
+      });
+
+      $scope.$watch('events', function() {
+        calculateWeeks();
+      });
+
+      /////////////////
+      
+      function onClick(date, index) {
+        if (!date || date.disabled) { return; }
+        $scope.options.defaultDate = date.date;
+        if (date.event) {
+          $scope.options.eventClick(date);
+        } else {
+          $scope.options.dateClick(date);
+        }
+      }
+
+      function bindEvent(date) {
         if (!date || !$scope.events) { return; }
         $scope.events.forEach(function(event) {
           event.date = new Date(event.date);
@@ -77,9 +100,9 @@
             date.event = event;
           }
         });
-      };
+      }
 
-      allowedDate = function (date) {
+      function allowedDate(date) {
         if (!$scope.options.minDate && !$scope.options.maxDate) {
           return true;
         }
@@ -87,9 +110,9 @@
         if ($scope.options.minDate && (currDate < $scope.options.minDate)) { return false; }
         if ($scope.options.maxDate && (currDate > $scope.options.maxDate)) { return false; }
         return true;
-      };
+      }
 
-      disabledDate = function (date) {
+      function disabledDate(date) {
         if (!$scope.options.disabledDates) return false;
         for(var i = 0; i < $scope.options.disabledDates.length; i++){
           if(date.year === $scope.options.disabledDates[i].getFullYear() && date.month === $scope.options.disabledDates[i].getMonth() && date.day === $scope.options.disabledDates[i].getDate()){
@@ -99,7 +122,7 @@
         }
       }
 
-      $scope.allowedPrevMonth = function () {
+      function allowedPrevMonth() {
         var prevYear = null;
         var prevMonth = null;
         if (!$scope.options.minDate) { return true; }
@@ -119,9 +142,9 @@
           if (prevMonth < $scope.options.minDate.getMonth()) { return false; }
         }
         return true;
-      };
+      }
 
-      $scope.allowedNextMonth = function () {
+      function allowedNextMonth() {
         var nextYear = null;
         var nextMonth = null;
         if (!$scope.options.maxDate) { return true; }
@@ -143,13 +166,13 @@
         return true;
       };
 
-      flattenWeek = function(){
+      function flattenWeek(){
         $scope.days = $scope.weeks.reduce(function(a, b) {
           return a.concat(b);
         });
       };
 
-      calculateWeeks = function () {
+      function calculateWeeks() {
         $scope.weeks = [];
         var week = null;
         var daysInCurrentMonth = new Date($scope.selectedYear, MONTHS.indexOf($scope.selectedMonth) + 1, 0).getDate();
@@ -185,7 +208,7 @@
         flattenWeek();
       };
 
-      calculateSelectedDate = function () {
+      function calculateSelectedDate() {
         if ($scope.options.defaultDate) {
           $scope.options._defaultDate = new Date($scope.options.defaultDate);
         } else {
@@ -198,7 +221,7 @@
         calculateWeeks();
       };
 
-      calculateDisabledDates = function () {
+      function calculateDisabledDates() {
         if (!$scope.options.disabledDates || $scope.options.disabledDates.length === 0) return;
         for(var i = 0; i < $scope.options.disabledDates.length; i++){
           $scope.options.disabledDates[i] = new Date($scope.options.disabledDates[i]);
@@ -206,11 +229,11 @@
         calculateWeeks();
       }
 
-      $scope.weekDays = function (size) {
+      function weekDays(size) {
         return WEEKDAYS.map(function(name) { return name.slice(0, size) });
       };
 
-      $scope.isDefaultDate = function (date) {
+      function isDefaultDate(date) {
         if (!date) { return; }
         var result = date.year === $scope.options._defaultDate.getFullYear() &&
           date.month === $scope.options._defaultDate.getMonth() &&
@@ -218,7 +241,7 @@
         return result;
       };
 
-      $scope.prevMonth = function () {
+      function prevMonth() {
         if (!$scope.allowedPrevMonth()) { return; }
         var currIndex = MONTHS.indexOf($scope.selectedMonth);
         if (currIndex === 0) {
@@ -232,7 +255,7 @@
         calculateWeeks();
       };
 
-      $scope.nextMonth = function () {
+      function nextMonth() {
         if (!$scope.allowedNextMonth()) { return; }
         var currIndex = MONTHS.indexOf($scope.selectedMonth);
         if (currIndex === 11) {
@@ -244,19 +267,7 @@
         var month = {name: $scope.selectedMonth, index: currIndex + 1, _index: currIndex+2 }
         $scope.options.changeMonth(month);
         calculateWeeks();
-      };
-
-      $scope.$watch('options.defaultDate', function() {
-        calculateSelectedDate();
-      });
-
-      $scope.$watch('options.disabledDates', function() {
-        calculateDisabledDates();
-      });
-
-      $scope.$watch('events', function() {
-        calculateWeeks();
-      });
+      }
     }
 
 })();
