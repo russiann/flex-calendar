@@ -1,7 +1,7 @@
 (function(){
   
   angular
-    .module('russian60.flexcalendar', [])
+    .module('flexcalendar', [])
     .directive('flexCalendar', flexCalendar);
 
     function flexCalendar() {
