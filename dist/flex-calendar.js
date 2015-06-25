@@ -89,6 +89,16 @@
         return true;
       };
 
+      disabledDate = function (date) {
+        if (!$scope.options.disabledDates) return false;
+        for(var i = 0; i < $scope.options.disabledDates.length; i++){
+          if(date.year === $scope.options.disabledDates[i].getFullYear() && date.month === $scope.options.disabledDates[i].getMonth() && date.day === $scope.options.disabledDates[i].getDate()){
+            return true;
+            break;
+          }
+        }
+      }
+
       $scope.allowedPrevMonth = function () {
         var prevYear = null;
         var prevMonth = null;
@@ -162,6 +172,10 @@
             week[dayNumber].disabled = true;
           }
 
+          if (week[dayNumber] && disabledDate(week[dayNumber])) {
+            week[dayNumber].disabled = true; 
+          };
+
           if (dayNumber === 6 || day === daysInCurrentMonth) {
             $scope.weeks.push(week);
             week = undefined;
@@ -183,6 +197,14 @@
         $scope.selectedDay   = $scope.options._defaultDate.getDate();
         calculateWeeks();
       };
+
+      calculateDisabledDates = function () {
+        if (!$scope.options.disabledDates || $scope.options.disabledDates.length === 0) return;
+        for(var i = 0; i < $scope.options.disabledDates.length; i++){
+          $scope.options.disabledDates[i] = new Date($scope.options.disabledDates[i]);
+        }
+        calculateWeeks();
+      }
 
       $scope.weekDays = function (size) {
         return WEEKDAYS.map(function(name) { return name.slice(0, size) });
@@ -226,6 +248,10 @@
 
       $scope.$watch('options.defaultDate', function() {
         calculateSelectedDate();
+      });
+
+      $scope.$watch('options.disabledDates', function() {
+        calculateDisabledDates();
       });
 
       $scope.$watch('events', function() {

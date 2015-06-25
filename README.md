@@ -30,6 +30,12 @@ app.controller('myController', ['$scope', function($scope) {
     defaultDate: "2015-06-23",
     minDate: new Date([2015, 06, 12]),
     maxDate: new Date([2015, 12, 31]),
+    disabledDates: [
+      '2015-06-27',
+      new Date([2015, 07, 20]),
+      new Date([2015, 07, 25]),
+      new Date([2015, 08, 13]),
+    ]
     dayNamesLength: 1, // 1 for "M", 2 for "Mo", 3 for "Mon"; 9 will show full day names. Default is 1.
     eventClick: function(date) {
       console.log(date);
@@ -39,7 +45,7 @@ app.controller('myController', ['$scope', function($scope) {
     },
     changeMonth: function(month) {
       console.log(month);
-    }
+    },
   };
   
   $scope.events = [
