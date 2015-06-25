@@ -11,7 +11,7 @@ Add to index.html:
 <script type="text/javascript" src="path/to/flex-calendar.js"></script>
 ```
 
-Inject ``'russian60.flex-calendar'`` into your main module:
+Inject ``'flex-calendar'`` into your main module:
 
 ```javascript
 angular.module('App', ['flex-calendar'])
