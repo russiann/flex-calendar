@@ -27,12 +27,11 @@ Flex Calendar takes a few options:
 app.controller('myController', ['$scope', function($scope) {
   // Dates can be passed as strings or Date objects 
   $scope.options = {
-    defaultDate: "2015-06-23",
+    defaultDate: new Date([2015, 06, 26]),
     minDate: new Date([2015, 06, 12]),
     maxDate: new Date([2015, 12, 31]),
     disabledDates: [
-      '2015-06-27',
-      new Date([2015, 07, 20]),
+      new Date([2015, 06, 30]),
       new Date([2015, 07, 25]),
       new Date([2015, 08, 13]),
     ]
