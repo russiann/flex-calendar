@@ -4,6 +4,17 @@ An Elegant Calendar Built With Angular.js
 
 ## Installation
 
+### bower
+
+```shell
+bower install flex-calendar --save
+```
+and run
+```shell
+bower install
+```
+## Usage
+
 Add to index.html:
 
 ```html
@@ -17,15 +28,15 @@ Inject ``'flex-calendar'`` into your main module:
 angular.module('App', ['flex-calendar'])
 ```
 
-## Usage
-
 Add ``<flex-calendar options="options" events="events"></flex-calendar>`` directive to your html file.
+
+## Options
 
 Flex Calendar takes a few options:
 
 ```javascript
 app.controller('myController', ['$scope', function($scope) {
-  // Dates can be passed as strings or Date objects 
+  // Dates can be passed as strings or Date objects
   $scope.options = {
     defaultDate: new Date([2015, 06, 26]),
     minDate: new Date([2015, 06, 12]),
@@ -46,7 +57,7 @@ app.controller('myController', ['$scope', function($scope) {
       console.log(month);
     },
   };
-  
+
   $scope.events = [
     {foo: 'bar', date: new Date([2015, 12, 31])},
     {foo: 'bar', date: new Date([2015, 6, 4])}
@@ -67,9 +78,6 @@ app.controller('myController', ['$scope', function($scope) {
 5. Submit a pull request :D
 
 ## To Do
-
-1. Bower Package
-
 
 ## License
 
@@ -94,4 +102,3 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-
