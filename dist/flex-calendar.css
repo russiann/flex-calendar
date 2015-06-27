@@ -64,6 +64,7 @@
   background-size: contain;
   background-origin: content-box;
   padding:15px 5px;
+  cursor:pointer;
 }
 .flex-calendar .month .arrow:last-child {
   -webkit-transform: rotate(180deg);
