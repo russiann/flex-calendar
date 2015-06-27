@@ -30,20 +30,20 @@
   -webkit-align-items: flex-start;
       -ms-flex-align: start;
           align-items: flex-start;
-  
+
   background-color: #ffb835;
 }
 
 .flex-calendar .month .arrow,
 .flex-calendar .month .label{
   height: 60px;
-  
+
   -webkit-box-ordinal-group: 1;
-  
+
   -webkit-order: 0;
-  
+
       -ms-flex-order: 0;
-  
+
           order: 0;
   -webkit-box-flex: 0;
   -webkit-flex: 0 1 auto;
@@ -53,7 +53,7 @@
       -ms-flex-item-align: auto;
           align-self: auto;
   line-height: 60px;
-  
+
   font-size:20px;
 }
 
@@ -99,7 +99,7 @@
       -ms-flex-positive: 0;
           flex-grow: 0;
   min-width: 14.285714286%;
-  
+
   text-align: center;
 }
 
@@ -110,10 +110,10 @@
   line-height: 60px;
   border-top:1px solid #FCFCFC;
   background-color: #fff;
-  color: #c0c0c0;
-  
+  color: #8B8B8B;
+
   -webkit-transition: all 0.3s ease;
-  
+
           transition: all 0.3s ease;
 }
 
@@ -184,4 +184,4 @@
   position:absolute;
   bottom:10px;
   margin-left:-3px;
-} 
+}
