@@ -1,0 +1,30 @@
+{
+  "name": "flex-calendar",
+  "version": "1.0.0",
+  "description": "An Elegant Calendar Built With Angular.js",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Russian60/flex-calendar.git"
+  },
+  "keywords": [
+    "calendar",
+    "angular",
+    "flex"
+  ],
+  "author": "Russian Rebouças",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Russian60/flex-calendar/issues"
+  },
+  "homepage": "https://github.com/Russian60/flex-calendar#readme",
+  "devDependencies": {
+    "gulp": "^3.9.0",
+    "gulp-minify-css": "^1.2.0",
+    "gulp-rename": "^1.2.2",
+    "gulp-uglify": "^1.2.0"
+  }
+}
