@@ -18,8 +18,8 @@ bower install
 Add to index.html:
 
 ```html
-<link rel="stylesheet" href="path/to/flex-calendar.css">
-<script type="text/javascript" src="path/to/flex-calendar.js"></script>
+<link rel="stylesheet" href="bower_components/flex-calendar.css">
+<script type="text/javascript" src="bower_components/flex-calendar.js"></script>
 ```
 
 Inject ``'flex-calendar'`` into your main module:
