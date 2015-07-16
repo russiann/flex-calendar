@@ -20,7 +20,7 @@
           '<div class="day"'+
             'ng-repeat="day in days  track by $index"'+
             'ng-class="{selected: isDefaultDate(day), event: day.event, disabled: day.disabled, out: !day}"'+
-            'ng-click="onClick(day, $index)"'+
+            'ng-click="onClick(day, $index, $event)"'+
           '>'+
             '<div class="number">{{day.day}}</div>'+
           '</div>'+
@@ -81,13 +81,13 @@
 
       /////////////////
 
-      function onClick(date, index) {
+      function onClick(date, index, domEvent) {
         if (!date || date.disabled) { return; }
         $scope.options.defaultDate = date.date;
         if (date.event) {
-          $scope.options.eventClick(date);
+          $scope.options.eventClick(date, domEvent);
         } else {
-          $scope.options.dateClick(date);
+          $scope.options.dateClick(date, domEvent);
         }
       }
 
