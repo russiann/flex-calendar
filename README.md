@@ -38,13 +38,13 @@ Flex Calendar takes a few options:
 app.controller('myController', ['$scope', function($scope) {
   // Dates can be passed as strings or Date objects
   $scope.options = {
-    defaultDate: new Date([2015, 06, 26]),
-    minDate: new Date([2015, 06, 12]),
-    maxDate: new Date([2015, 12, 31]),
+    defaultDate: new Date(2015, 06, 26),
+    minDate: new Date(2015, 06, 12),
+    maxDate: new Date(2015, 12, 31),
     disabledDates: [
-      new Date([2015, 06, 30]),
-      new Date([2015, 07, 25]),
-      new Date([2015, 08, 13]),
+      new Date(2015, 06, 30),
+      new Date(2015, 07, 25),
+      new Date(2015, 08, 13),
     ],
     dayNamesLength: 1, // 1 for "M", 2 for "Mo", 3 for "Mon"; 9 will show full day names. Default is 1.
     eventClick: function(date) {
@@ -59,8 +59,8 @@ app.controller('myController', ['$scope', function($scope) {
   };
 
   $scope.events = [
-    {foo: 'bar', date: new Date([2015, 12, 31])},
-    {foo: 'bar', date: new Date([2015, 6, 4])}
+    {foo: 'bar', date: new Date(2015, 12, 3)},
+    {foo: 'bar', date: new Date(2015, 6, 4)}
   ];
 }]);
 ```

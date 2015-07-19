@@ -18,7 +18,7 @@
         '</div>'+
         '<div class="days">'+
           '<div class="day"'+
-            'ng-repeat="day in days  track by $index"'+
+            'ng-repeat="day in days track by $index"'+
             'ng-class="{selected: isDefaultDate(day), event: day.event, disabled: day.disabled, out: !day}"'+
             'ng-click="onClick(day, $index, $event)"'+
           '>'+
@@ -105,7 +105,7 @@
         if (!$scope.options.minDate && !$scope.options.maxDate) {
           return true;
         }
-        var currDate = new Date([date.year, date.month + 1, date.day]);
+        var currDate = date.date;
         if ($scope.options.minDate && (currDate < $scope.options.minDate)) { return false; }
         if ($scope.options.maxDate && (currDate > $scope.options.maxDate)) { return false; }
         return true;
@@ -168,7 +168,8 @@
       function flattenWeek(){
         $scope.days = $scope.weeks.reduce(function(a, b) {
           return a.concat(b);
-        }, "");
+        }, []);
+
       }
 
       function calculateWeeks() {
@@ -203,7 +204,6 @@
             week = undefined;
           }
         }
-
         flattenWeek();
       }
 
@@ -213,6 +213,7 @@
         } else {
           $scope.options._defaultDate = new Date();
         }
+        console.log( $scope.options._defaultDate);
 
         $scope.selectedYear  = $scope.options._defaultDate.getFullYear();
         $scope.selectedMonth = MONTHS[$scope.options._defaultDate.getMonth()];
