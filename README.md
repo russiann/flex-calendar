@@ -59,7 +59,7 @@ app.controller('myController', ['$scope', function($scope) {
   };
 
   $scope.events = [
-    {foo: 'bar', date: new Date(2015, 12, 3)},
+    {foo: 'bar', date: new Date(2015, 11, 3)},
     {foo: 'bar', date: new Date(2015, 6, 4)}
   ];
 }]);

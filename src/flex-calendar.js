@@ -181,7 +181,7 @@
             month: MONTHS.indexOf($scope.selectedMonth),
             day: day,
             date: date,
-            _month : date.getMonth() + 1,
+            _month : date.getMonth() + 1
           };
 
           if (allowedDate(week[dayNumber])) {
