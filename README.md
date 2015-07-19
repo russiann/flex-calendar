@@ -25,7 +25,7 @@ Add to index.html:
 Inject ``'flex-calendar'`` into your main module:
 
 ```javascript
-angular.module('App', ['flex-calendar'])
+angular.module('App', ['flexcalendar'])
 ```
 
 Add ``<flex-calendar options="options" events="events"></flex-calendar>`` directive to your html file.
@@ -38,14 +38,14 @@ Flex Calendar takes a few options:
 app.controller('myController', ['$scope', function($scope) {
   // Dates can be passed as strings or Date objects
   $scope.options = {
-    defaultDate: new Date([2015, 06, 26]),
-    minDate: new Date([2015, 06, 12]),
-    maxDate: new Date([2015, 12, 31]),
+    defaultDate: new Date(2015, 06, 26),
+    minDate: new Date(2015, 06, 12),
+    maxDate: new Date(2015, 12, 31),
     disabledDates: [
-      new Date([2015, 06, 30]),
-      new Date([2015, 07, 25]),
-      new Date([2015, 08, 13]),
-    ]
+      new Date(2015, 06, 30),
+      new Date(2015, 07, 25),
+      new Date(2015, 08, 13),
+    ],
     dayNamesLength: 1, // 1 for "M", 2 for "Mo", 3 for "Mon"; 9 will show full day names. Default is 1.
     eventClick: function(date) {
       console.log(date);
@@ -53,14 +53,14 @@ app.controller('myController', ['$scope', function($scope) {
     dateClick: function(date) {
       console.log(date);
     },
-    changeMonth: function(month) {
-      console.log(month);
+    changeMonth: function(month, year) {
+      console.log(month, year);
     },
   };
 
   $scope.events = [
-    {foo: 'bar', date: new Date([2015, 12, 31])},
-    {foo: 'bar', date: new Date([2015, 6, 4])}
+    {foo: 'bar', date: new Date(2015, 11, 3)},
+    {foo: 'bar', date: new Date(2015, 6, 4)}
   ];
 }]);
 ```
@@ -76,6 +76,9 @@ app.controller('myController', ['$scope', function($scope) {
 3. Commit your changes: `git commit -am 'Add some feature'`
 4. Push to the branch: `git push origin my-new-feature`
 5. Submit a pull request :D
+
+## Note
+JavaScript counts months from 0 to 11. January is 0. December is 11.
 
 ## To Do
 
