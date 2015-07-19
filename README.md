@@ -45,7 +45,7 @@ app.controller('myController', ['$scope', function($scope) {
       new Date([2015, 06, 30]),
       new Date([2015, 07, 25]),
       new Date([2015, 08, 13]),
-    ]
+    ],
     dayNamesLength: 1, // 1 for "M", 2 for "Mo", 3 for "Mon"; 9 will show full day names. Default is 1.
     eventClick: function(date) {
       console.log(date);
