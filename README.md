@@ -25,7 +25,7 @@ Add to index.html:
 Inject ``'flex-calendar'`` into your main module:
 
 ```javascript
-angular.module('App', ['flex-calendar'])
+angular.module('App', ['flexcalendar'])
 ```
 
 Add ``<flex-calendar options="options" events="events"></flex-calendar>`` directive to your html file.
