@@ -168,7 +168,7 @@
       function flattenWeek(){
         $scope.days = $scope.weeks.reduce(function(a, b) {
           return a.concat(b);
-        });
+        }, "");
       }
 
       function calculateWeeks() {
