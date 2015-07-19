@@ -19,7 +19,7 @@
         '<div class="days" ng-repeat="week in weeks">'+
           '<div class="day"'+
             'ng-repeat="day in week track by $index"'+
-            'ng-class="{selected: isDefaultDate(day), event: day.event, disabled: day.disabled, out: !day}"'+
+            'ng-class="{selected: isDefaultDate(day), event: day.event[0], disabled: day.disabled, out: !day}"'+
             'ng-click="onClick(day, $index, $event)"'+
           '>'+
             '<div class="number">{{day.day}}</div>'+
@@ -94,11 +94,12 @@
 
       function bindEvent(date) {
         if (!date || !$scope.events) { return; }
+        date.event = [];
         $scope.events.forEach(function(event) {
           if (date.date.getFullYear() === event.date.getFullYear() 
               && date.date.getMonth() === event.date.getMonth() 
               && date.date.getDate() === event.date.getDate()) {
-            date.event = event;
+            date.event.push(event);
           }
         });
       }
