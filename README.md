@@ -53,8 +53,8 @@ app.controller('myController', ['$scope', function($scope) {
     dateClick: function(date) {
       console.log(date);
     },
-    changeMonth: function(month) {
-      console.log(month);
+    changeMonth: function(month, year) {
+      console.log(month, year);
     },
   };
 
@@ -76,6 +76,9 @@ app.controller('myController', ['$scope', function($scope) {
 3. Commit your changes: `git commit -am 'Add some feature'`
 4. Push to the branch: `git push origin my-new-feature`
 5. Submit a pull request :D
+
+## Note
+JavaScript counts months from 0 to 11. January is 0. December is 11.
 
 ## To Do
 
