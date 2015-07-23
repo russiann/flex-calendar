@@ -85,7 +85,7 @@
       function onClick(date, index, domEvent) {
         if (!date || date.disabled) { return; }
         $scope.options.defaultDate = date.date;
-        if (date.event) {
+        if (date.event.length != 0) {
           $scope.options.eventClick(date, domEvent);
         } else {
           $scope.options.dateClick(date, domEvent);
@@ -96,8 +96,8 @@
         if (!date || !$scope.events) { return; }
         date.event = [];
         $scope.events.forEach(function(event) {
-          if (date.date.getFullYear() === event.date.getFullYear() 
-              && date.date.getMonth() === event.date.getMonth() 
+          if (date.date.getFullYear() === event.date.getFullYear()
+              && date.date.getMonth() === event.date.getMonth()
               && date.date.getDate() === event.date.getDate()) {
             date.event.push(event);
           }
