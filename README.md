@@ -136,6 +136,7 @@ app.config(function ($translateProvider) {
       SATURDAY: 'Sábado'
   });
   $translateProvider.preferredLanguage('fr');
+  $translateProvider.useSanitizeValueStrategy('sanitize');
 });
 ```
 
