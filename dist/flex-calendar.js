@@ -10,11 +10,11 @@
       '<div class="flex-calendar">'+
         '<div class="month">'+
           '<div class="arrow" ng-click="prevMonth()"></div>'+
-          '<div class="label">{{selectedMonth}} {{selectedYear}}</div>'+
+          '<div class="label">{{ selectedMonth | translate }} {{selectedYear}}</div>'+
           '<div class="arrow" ng-click="nextMonth()"></div>'+
         '</div>'+
         '<div class="week">'+
-          '<div class="day" ng-repeat="day in weekDays(options.dayNamesLength) track by $index">{{day}}</div>'+
+          '<div class="day" ng-repeat="day in weekDays(options.dayNamesLength) track by $index">{{ day | translate }}</div>'+
         '</div>'+
         '<div class="days" ng-repeat="week in weeks">'+
           '<div class="day"'+
@@ -44,8 +44,6 @@
     Controller.$inject = ['$scope'];
 
     function Controller($scope) {
-      var MONTHS = ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'];
-      var WEEKDAYS = ['Domingo', 'Segunda', 'Terça', 'Quarta', 'Quinta', 'Sexta', 'Sábado'];
 
       $scope.days = [];
       $scope.options = $scope.options || {};
@@ -59,6 +57,9 @@
       $scope.isDefaultDate = isDefaultDate;
       $scope.prevMonth = prevMonth;
       $scope.nextMonth = nextMonth;
+
+      var MONTHS = ['JANUARY', 'FEBRUARY', 'MARCH', 'APRIL', 'MAI', 'JUNE', 'JULY', 'AUGUST', 'SEPTEMBER', 'OCTOBER', 'NOVEMBER', 'DECEMBER'];
+      var WEEKDAYS = ['SUNDAY' , 'MONDAY' , 'TUESDAY' , 'WEDNESDAY' , 'THURSDAY' , 'FRIDAY' , 'SATURDAY'];
 
       if ($scope.options.minDate) {
         $scope.options.minDate = new Date($scope.options.minDate);
@@ -87,7 +88,9 @@
         $scope.options.defaultDate = date.date;
         if (date.event.length != 0) {
           $scope.options.eventClick(date, domEvent);
-        } else {
+        }
+        else
+        {
           $scope.options.dateClick(date, domEvent);
         }
       }

@@ -24,5 +24,8 @@
     "bower_components",
     "test",
     "tests"
-  ]
+  ],
+  "dependencies": {
+    "angular-translate": "~2.7.2"
+  }
 }
