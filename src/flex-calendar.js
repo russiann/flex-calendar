@@ -49,6 +49,7 @@
       $scope.options = $scope.options || {};
       $scope.events = $scope.events || [];
       $scope.options.dayNamesLength = $scope.options.dayNamesLength || 1;
+      $scope.options.mondayIsFirstDay = $scope.options.mondayIsFirstDay || false;
 
       $scope.onClick = onClick;
       $scope.allowedPrevMonth = allowedPrevMonth;
@@ -61,6 +62,11 @@
       var MONTHS = ['JANUARY', 'FEBRUARY', 'MARCH', 'APRIL', 'MAI', 'JUNE', 'JULY', 'AUGUST', 'SEPTEMBER', 'OCTOBER', 'NOVEMBER', 'DECEMBER'];
       var WEEKDAYS = ['SUNDAY' , 'MONDAY' , 'TUESDAY' , 'WEDNESDAY' , 'THURSDAY' , 'FRIDAY' , 'SATURDAY'];
 
+      if($scope.options.mondayIsFirstDay)
+      {
+        var sunday = WEEKDAYS.shift();
+        WEEKDAYS.push(sunday)
+      }
 
       if ($scope.options.minDate) {
         $scope.options.minDate = new Date($scope.options.minDate);
@@ -180,6 +186,10 @@
         for (var day = 1; day < daysInCurrentMonth + 1; day += 1) {
           var date = new Date($scope.selectedYear, MONTHS.indexOf($scope.selectedMonth), day);
           var dayNumber = new Date($scope.selectedYear, MONTHS.indexOf($scope.selectedMonth), day).getDay();
+          if($scope.options.mondayIsFirstDay)
+          {
+            dayNumber = (dayNumber + 6) % 7;
+          }
           week = week || [null, null, null, null, null, null, null];
           week[dayNumber] = {
             year: $scope.selectedYear,
