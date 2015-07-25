@@ -19,13 +19,14 @@ Add to index.html:
 
 ```html
 <link rel="stylesheet" href="bower_components/flex-calendar.css">
+<script type="text/javascript" src="bower_components/angular-translate/angular-translate.min.js.js"></script>
 <script type="text/javascript" src="bower_components/flex-calendar.js"></script>
 ```
 
-Inject ``'flex-calendar'`` into your main module:
+Inject ``'flex-calendar'`` and ``'pascalprecht.translate'`` into your main module:
 
 ```javascript
-angular.module('App', ['flexcalendar'])
+angular.module('App', ['flexcalendar' , 'pascalprecht.translate'])
 ```
 
 Add ``<flex-calendar options="options" events="events"></flex-calendar>`` directive to your html file.
@@ -63,6 +64,80 @@ app.controller('myController', ['$scope', function($scope) {
     {foo: 'bar', date: new Date(2015, 6, 4)}
   ];
 }]);
+```
+
+## Translate
+```javascript
+app.config(function ($translateProvider) {
+  $translateProvider.translations('en', {
+    JANUARY: 'January',
+    FEBRUARY: 'February',
+    MARCH: 'March',
+    APRIL: 'April',
+    MAI: 'Mai',
+    JUNE: 'June',
+    JULY: 'July',
+    AUGUST: 'August',
+    SEPTEMBER: 'September',
+    OCTOBER: 'October',
+    NOVEMBER: 'November',
+    DECEMBER: 'December',
+
+    SUNDAY: 'Sunday',
+    MONDAY: 'Monday',
+    TUESDAY: 'Tuesday',
+    WEDNESDAY: 'Wednesday',
+    THURSDAY: 'Thurday',
+    FRIDAY: 'Friday',
+    SATURDAY: 'Saturday'
+  });
+  $translateProvider.translations('fr', {
+      JANUARY: 'Janvier',
+      FEBRUARY: 'Févier',
+      MARCH: 'Mars',
+      APRIL: 'Avril',
+      MAI: 'Mai',
+      JUNE: 'Juin',
+      JULY: 'Juillet',
+      AUGUST: 'Août',
+      SEPTEMBER: 'Septembre',
+      OCTOBER: 'Octobre',
+      NOVEMBER: 'Novembre',
+      DECEMBER: 'Décembre',
+
+      SUNDAY: 'Dimanche',
+      MONDAY: 'Lundi',
+      TUESDAY: 'Mardi',
+      WEDNESDAY: 'Mercredi',
+      THURSDAY: 'Jeudi',
+      FRIDAY: 'Vendredi',
+      SATURDAY: 'Samedi'
+  });
+  $translateProvider.translations('pt', {
+      JANUARY: 'Janeiro',
+      FEBRUARY: 'Fevereiro',
+      MARCH: 'Março',
+      APRIL: 'Abril',
+      MAI: 'Maio',
+      JUNE: 'Junho',
+      JULY: 'Julho',
+      AUGUST: 'Agosto',
+      SEPTEMBER: 'Setembro',
+      OCTOBER: 'Outubro',
+      NOVEMBER: 'Novembro',
+      DECEMBER: 'Dezembro',
+
+      SUNDAY: 'Domingo',
+      MONDAY: 'Segunda',
+      TUESDAY: 'Terça',
+      WEDNESDAY: 'Quarta',
+      THURSDAY: 'Quinta',
+      FRIDAY: 'Sexta',
+      SATURDAY: 'Sábado'
+  });
+  $translateProvider.preferredLanguage('fr');
+  $translateProvider.useSanitizeValueStrategy('sanitize');
+});
 ```
 
 ## Example
