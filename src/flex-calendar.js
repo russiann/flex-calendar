@@ -10,7 +10,7 @@
       '<div class="flex-calendar">'+
         '<div class="month">'+
           '<div class="arrow" ng-click="prevMonth()"></div>'+
-          '<div class="label">{{ selectedMonth | translate }} {{selectedYear}}</div>'+
+          '<div class="label">{{ selectedMonth }} {{selectedYear}}</div>'+
           '<div class="arrow" ng-click="nextMonth()"></div>'+
         '</div>'+
         '<div class="week">'+
@@ -41,9 +41,9 @@
 
     }
 
-    Controller.$inject = ['$scope'];
+    Controller.$inject = ['$scope' , '$filter'];
 
-    function Controller($scope) {
+    function Controller($scope , $filter) {
 
       $scope.days = [];
       $scope.options = $scope.options || {};
@@ -58,6 +58,8 @@
       $scope.isDefaultDate = isDefaultDate;
       $scope.prevMonth = prevMonth;
       $scope.nextMonth = nextMonth;
+
+      var $translate = $filter('translate');
 
       var MONTHS = ['JANUARY', 'FEBRUARY', 'MARCH', 'APRIL', 'MAI', 'JUNE', 'JULY', 'AUGUST', 'SEPTEMBER', 'OCTOBER', 'NOVEMBER', 'DECEMBER'];
       var WEEKDAYS = ['SUNDAY' , 'MONDAY' , 'TUESDAY' , 'WEDNESDAY' , 'THURSDAY' , 'FRIDAY' , 'SATURDAY'];
@@ -238,7 +240,7 @@
       }
 
       function weekDays(size) {
-        return WEEKDAYS.map(function(name) { return name.slice(0, size); });
+        return WEEKDAYS.map(function(name) { return $translate(name).slice(0, size); });
       }
 
       function isDefaultDate(date) {
