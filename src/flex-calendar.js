@@ -10,7 +10,7 @@
       '<div class="flex-calendar">'+
         '<div class="month">'+
           '<div class="arrow" ng-click="prevMonth()"></div>'+
-          '<div class="label">{{ selectedMonth | translate }} {{selectedYear}}</div>'+
+          '<div class="label">{{ selectedMonth }} {{selectedYear}}</div>'+
           '<div class="arrow" ng-click="nextMonth()"></div>'+
         '</div>'+
         '<div class="week">'+
@@ -41,14 +41,15 @@
 
     }
 
-    Controller.$inject = ['$scope'];
+    Controller.$inject = ['$scope' , '$filter'];
 
-    function Controller($scope) {
+    function Controller($scope , $filter) {
 
       $scope.days = [];
       $scope.options = $scope.options || {};
       $scope.events = $scope.events || [];
       $scope.options.dayNamesLength = $scope.options.dayNamesLength || 1;
+      $scope.options.mondayIsFirstDay = $scope.options.mondayIsFirstDay || false;
 
       $scope.onClick = onClick;
       $scope.allowedPrevMonth = allowedPrevMonth;
@@ -58,9 +59,16 @@
       $scope.prevMonth = prevMonth;
       $scope.nextMonth = nextMonth;
 
+      var $translate = $filter('translate');
+
       var MONTHS = ['JANUARY', 'FEBRUARY', 'MARCH', 'APRIL', 'MAI', 'JUNE', 'JULY', 'AUGUST', 'SEPTEMBER', 'OCTOBER', 'NOVEMBER', 'DECEMBER'];
       var WEEKDAYS = ['SUNDAY' , 'MONDAY' , 'TUESDAY' , 'WEDNESDAY' , 'THURSDAY' , 'FRIDAY' , 'SATURDAY'];
 
+      if($scope.options.mondayIsFirstDay)
+      {
+        var sunday = WEEKDAYS.shift();
+        WEEKDAYS.push(sunday)
+      }
 
       if ($scope.options.minDate) {
         $scope.options.minDate = new Date($scope.options.minDate);
@@ -180,6 +188,10 @@
         for (var day = 1; day < daysInCurrentMonth + 1; day += 1) {
           var date = new Date($scope.selectedYear, MONTHS.indexOf($scope.selectedMonth), day);
           var dayNumber = new Date($scope.selectedYear, MONTHS.indexOf($scope.selectedMonth), day).getDay();
+          if($scope.options.mondayIsFirstDay)
+          {
+            dayNumber = (dayNumber + 6) % 7;
+          }
           week = week || [null, null, null, null, null, null, null];
           week[dayNumber] = {
             year: $scope.selectedYear,
@@ -228,7 +240,7 @@
       }
 
       function weekDays(size) {
-        return WEEKDAYS.map(function(name) { return name.slice(0, size); });
+        return WEEKDAYS.map(function(name) { return $translate(name).slice(0, size); });
       }
 
       function isDefaultDate(date) {
