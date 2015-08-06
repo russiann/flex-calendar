@@ -38,7 +38,7 @@ Flex Calendar takes a few options:
 ```javascript
 app.controller('myController', ['$scope', function($scope) {
   "use strict";
-  // With "use stric", Dates can be passed ONLY as strings (ISO format: YYYY-MM-DD)
+  // With "use strict", Dates can be passed ONLY as strings (ISO format: YYYY-MM-DD)
   $scope.options = {
     defaultDate: "2015-08-06",
     minDate: "2015-01-01",
