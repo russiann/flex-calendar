@@ -1,5 +1,5 @@
 (function(){
-
+  "use strict";
   angular
     .module('flexcalendar', [])
     .directive('flexCalendar', flexCalendar);
@@ -76,6 +76,22 @@
 
       if ($scope.options.maxDate) {
         $scope.options.maxDate = new Date($scope.options.maxDate);
+      }
+
+      if($scope.options.disabledDates) {
+        $scope.options.disabledDates = $scope.options.disabledDates.map(function(date)
+        {
+          return new Date(date);
+        });
+      }
+
+      if($scope.events)
+      {
+        $scope.events = $scope.events.map(function(obj)
+        {
+          obj.date = new Date(obj.date);
+          return obj;
+        });
       }
 
       $scope.$watch('options.defaultDate', function() {

@@ -37,15 +37,17 @@ Flex Calendar takes a few options:
 
 ```javascript
 app.controller('myController', ['$scope', function($scope) {
-  // Dates can be passed as strings or Date objects
+  "use strict";
+  // With "use strict", Dates can be passed ONLY as strings (ISO format: YYYY-MM-DD)
   $scope.options = {
-    defaultDate: new Date(2015, 06, 26),
-    minDate: new Date(2015, 06, 12),
-    maxDate: new Date(2015, 12, 31),
+    defaultDate: "2015-08-06",
+    minDate: "2015-01-01",
+    maxDate: "2015-12-31",
     disabledDates: [
-      new Date(2015, 06, 30),
-      new Date(2015, 07, 25),
-      new Date(2015, 08, 13),
+        "2015-06-22",
+        "2015-07-27",
+        "2015-08-13",
+        "2015-08-15"
     ],
     dayNamesLength: 1, // 1 for "M", 2 for "Mo", 3 for "Mon"; 9 will show full day names. Default is 1.
     mondayIsFirstDay: true,//set monday as first day of week. Default is false
@@ -61,8 +63,8 @@ app.controller('myController', ['$scope', function($scope) {
   };
 
   $scope.events = [
-    {foo: 'bar', date: new Date(2015, 11, 3)},
-    {foo: 'bar', date: new Date(2015, 6, 4)}
+    {foo: 'bar', date: "2015-08-18"},
+    {foo: 'bar', date: "2015-08-20"}
   ];
 }]);
 ```
@@ -154,7 +156,7 @@ app.config(function ($translateProvider) {
 5. Submit a pull request :D
 
 ## Note
-JavaScript counts months from 0 to 11. January is 0. December is 11.
+Date string use the ISO format: YYYY-MM-DD
 
 ## To Do
 
