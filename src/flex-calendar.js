@@ -9,9 +9,9 @@
       var template =
       '<div class="flex-calendar">'+
         '<div class="month">'+
-          '<div class="arrow" ng-click="prevMonth()"></div>'+
+          '<div class="arrow {{arrowPrevClass}}" ng-click="prevMonth()"></div>'+
           '<div class="label">{{ selectedMonth | translate }} {{selectedYear}}</div>'+
-          '<div class="arrow" ng-click="nextMonth()"></div>'+
+          '<div class="arrow {{arrowNextClass}}" ng-click="nextMonth()"></div>'+
         '</div>'+
         '<div class="week">'+
           '<div class="day" ng-repeat="day in weekDays(options.dayNamesLength) track by $index">{{ day }}</div>'+
@@ -58,6 +58,9 @@
       $scope.isDefaultDate = isDefaultDate;
       $scope.prevMonth = prevMonth;
       $scope.nextMonth = nextMonth;
+
+      $scope.arrowPrevClass = "visible";
+      $scope.arrowNextClass = "visible";
 
       var $translate = $filter('translate');
 
@@ -159,12 +162,9 @@
         var currMonth = MONTHS.indexOf($scope.selectedMonth);
         if (currMonth === 0) {
           prevYear = ($scope.selectedYear - 1);
-        } else {
-          prevYear = $scope.selectedYear;
-        }
-        if (currMonth === 0) {
           prevMonth = 11;
         } else {
+          prevYear = $scope.selectedYear;
           prevMonth = (currMonth - 1);
         }
         if (prevYear < $scope.options.minDate.getFullYear()) { return false; }
@@ -181,12 +181,9 @@
         var currMonth = MONTHS.indexOf($scope.selectedMonth);
         if (currMonth === 11) {
           nextYear = ($scope.selectedYear + 1);
-        } else {
-          nextYear = $scope.selectedYear;
-        }
-        if (currMonth === 11) {
           nextMonth = 0;
         } else {
+          nextYear = $scope.selectedYear;
           nextMonth = (currMonth + 1);
         }
         if (nextYear > $scope.options.maxDate.getFullYear()) { return false; }
@@ -232,6 +229,8 @@
             week = undefined;
           }
         }
+        (!$scope.allowedPrevMonth()) ? $scope.arrowPrevClass = "hidden" : $scope.arrowPrevClass = "visible";
+        (!$scope.allowedNextMonth()) ? $scope.arrowNextClass = "hidden" : $scope.arrowNextClass = "visible";
       }
 
       function calculateSelectedDate() {
