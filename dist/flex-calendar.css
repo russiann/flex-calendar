@@ -65,13 +65,27 @@
   background-origin: content-box;
   padding:15px 5px;
   cursor:pointer;
+  -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    -o-transition: all 0.3s;
+    -ms-transition: all 0.3s;
+    transition: all 0.3s;
 }
 .flex-calendar .month .arrow:last-child {
   -webkit-transform: rotate(180deg);
       -ms-transform: rotate(180deg);
           transform: rotate(180deg);
 }
-
+.flex-calendar .month .arrow.visible{
+  opacity:1;
+  visibility: visible;
+  cursor: pointer;
+}
+.flex-calendar .month .arrow.hidden{
+  opacity:0;
+  visibility: hidden;
+  cursor: default;
+}
 .flex-calendar .week,
 .flex-calendar .days {
   line-height: 25px;
