@@ -82,15 +82,23 @@
       }
 
       if($scope.options.disabledDates) {
-        $scope.options.disabledDates = $scope.options.disabledDates.map(function(date)
+        createMappedDisabledDates();
+      }
+
+      if($scope.events)
+      {
+        createMappedEvents();
+      }
+
+      function createMappedDisabledDates(){
+        $scope.mappedDisabledDates = $scope.options.disabledDates.map(function(date)
         {
           return new Date(date);
         });
       }
 
-      if($scope.events)
-      {
-        $scope.events = $scope.events.map(function(obj)
+      function createMappedEvents(){
+        $scope.mappedEvents = $scope.events.map(function(obj)
         {
           obj.date = new Date(obj.date);
           return obj;
@@ -102,10 +110,13 @@
       });
 
       $scope.$watch('options.disabledDates', function() {
+        createMappedDisabledDates();
         calculateDisabledDates();
       });
 
       $scope.$watch('events', function() {
+        console.log("watch events");
+        createMappedEvents();
         calculateWeeks();
       });
 
@@ -124,9 +135,9 @@
       }
 
       function bindEvent(date) {
-        if (!date || !$scope.events) { return; }
+        if (!date || !$scope.mappedEvents) { return; }
         date.event = [];
-        $scope.events.forEach(function(event) {
+        $scope.mappedEvents.forEach(function(event) {
           if (date.date.getFullYear() === event.date.getFullYear()
               && date.date.getMonth() === event.date.getMonth()
               && date.date.getDate() === event.date.getDate()) {
@@ -146,9 +157,9 @@
       }
 
       function disabledDate(date) {
-        if (!$scope.options.disabledDates) return false;
-        for(var i = 0; i < $scope.options.disabledDates.length; i++){
-          if(date.year === $scope.options.disabledDates[i].getFullYear() && date.month === $scope.options.disabledDates[i].getMonth() && date.day === $scope.options.disabledDates[i].getDate()){
+        if (!$scope.mappedDisabledDates) return false;
+        for(var i = 0; i < $scope.mappedDisabledDates.length; i++){
+          if(date.year === $scope.mappedDisabledDates[i].getFullYear() && date.month === $scope.mappedDisabledDates[i].getMonth() && date.day === $scope.mappedDisabledDates[i].getDate()){
             return true;
             break;
           }
@@ -215,7 +226,7 @@
           };
 
           if (allowedDate(week[dayNumber])) {
-            if ($scope.events) { bindEvent(week[dayNumber]); }
+            if ($scope.mappedEvents) { bindEvent(week[dayNumber]); }
           } else {
             week[dayNumber].disabled = true;
           }
@@ -247,9 +258,9 @@
       }
 
       function calculateDisabledDates() {
-        if (!$scope.options.disabledDates || $scope.options.disabledDates.length === 0) return;
-        for(var i = 0; i < $scope.options.disabledDates.length; i++){
-          $scope.options.disabledDates[i] = new Date($scope.options.disabledDates[i]);
+        if (!$scope.mappedDisabledDates || $scope.mappedDisabledDates.length === 0) return;
+        for(var i = 0; i < $scope.mappedDisabledDates.length; i++){
+          $scope.mappedDisabledDates[i] = new Date($scope.mappedDisabledDates[i]);
         }
         calculateWeeks();
       }
