@@ -4,63 +4,64 @@
     <meta charset="utf-8">
     <title>FlexCalendar - Russian Rebouças</title>
     <style media="screen">
-      * {
-      -webkit-font-smoothing: antialiased;
-      }
+     /*
+  Git Repo: https://github.com/Russian60/flex-calendar
+*/
+* {
+  -webkit-font-smoothing: antialiased;
+}
 
-      body {
-      font-family: 'helvetica neue';
-      background-color: #A25200;
-      margin: 0;
-      }
+body {
+  font-family: 'helvetica neue';
+  background-color: #A25200;
+  margin: 0;
+}
 
-      h1 {
-      color: #FFFFFF;
-      text-align: center;
-      margin-top: 30px;
-      margin-bottom: 0px;
-      font-size:40px;
-      }
+h1 {
+  color: #FFFFFF;
+  text-align: center;
+  margin-top: 30px;
+  margin-bottom: 0px;
+  font-size:40px;
+}
 
-      p {
-      margin-top: 5px;
-      margin-bottom: 25px;
-      color: #fff;
-      font-weight: 300;
-      }
+p {
+  margin-top: 5px;
+  margin-bottom: 25px;
+  color: #fff;
+  font-weight: 300;
+}
 
-      span.l {
-      font-weight: 100;
-      }
+span.l {
+  font-weight: 100;
+}
 
-      span.r {
-        font-weight: 500;
-      }
+span.r {
+    font-weight: 500;
+}
 
-      .wrapp {
-      width: 450px;
-      height: 75%;
-      margin: 0 auto;
-      display: flex;
-      flex-direction: row;
-      flex-wrap: wrap;
-      justify-content: center;
-      align-content: center;
-      align-items: center;
-      }
+.wrapp {
+  width: 450px;
+  height: 75%;
+  margin: 0 auto;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+}
 
-      p {
-      text-align: center;
-      }
+p {
+  text-align: center;
+}
 
-      flex-calendar {
-        order: 0;
-        flex: 0 1 auto;
-        align-self: auto;
-        box-shadow:0px 0px 7px 0px rgba(0,0,0,0.3);
-      }
-      /* Library  */
-      .flex-calendar .days .day.selected,.flex-calendar .month{-webkit-box-orient:horizontal;-webkit-box-direction:normal}.flex-calendar .days,.flex-calendar .days .day.selected,.flex-calendar .month,.flex-calendar .week{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox}.flex-calendar{width:100%;min-height:50px;color:#FFF;font-weight:200}.flex-calendar .month{position:relative;display:flex;-webkit-flex-direction:row;-ms-flex-direction:row;flex-direction:row;-webkit-flex-wrap:nowrap;-ms-flex-wrap:nowrap;flex-wrap:nowrap;-webkit-box-pack:justify;-webkit-justify-content:space-between;-ms-flex-pack:justify;justify-content:space-between;-webkit-align-content:flex-start;-ms-flex-line-pack:start;align-content:flex-start;-webkit-box-align:start;-webkit-align-items:flex-start;-ms-flex-align:start;align-items:flex-start;background-color:#ffb835}.flex-calendar .month .arrow,.flex-calendar .month .label{height:60px;-webkit-box-ordinal-group:1;-webkit-order:0;-ms-flex-order:0;order:0;-webkit-box-flex:0;-webkit-flex:0 1 auto;-ms-flex:0 1 auto;flex:0 1 auto;-webkit-align-self:auto;-ms-flex-item-align:auto;align-self:auto;line-height:60px;font-size:20px}.flex-calendar .month .arrow{width:50px;box-sizing:border-box;background:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAABqUlEQVR4Xt3b0U3EMBCE4XEFUAolHB0clUFHUAJ0cldBkKUgnRDh7PWsd9Z5Tpz8nyxFspOCJMe2bU8AXgG8lFIurMcurIE8x9nj3wE8AvgE8MxCkAf4Ff/jTEOQBjiIpyLIAtyJpyFIAjTGUxDkADrjhxGkAIzxQwgyAIPxZgQJAFJ8RbgCOJVS6muy6QgHiIyvQqEA0fGhAArxYQAq8SEASvHTAdTipwIoxk8DUI2fAqAc7w6gHu8KkCHeDSBLvAtApng6QLZ4KkDGeBpA1ngKQOb4YYDs8UMAK8SbAVaJNwGsFN8NsFq8FeADwEPTmvPxSXV/v25xNy9fD97v8PLuVeF9FiyD0A1QKVdCMAGshGAGWAVhCGAFhGGA7AgUgMwINICsCFSAjAh0gGwILgCZENwAsiC4AmRAcAdQR5gCoIwwDUAVYSqAIsJ0ADWEEAAlhDAAFYRQAAWEcIBoBAkAIsLX/rV48291MgAEhO747o0Rr82J23GNS+6meEkAw0wwx8sCdCAMxUsDNCAMx8sD/INAiU8B8AcCLT4NwA3CG4Az68/xOu43keZ+UGLOkN4AAAAASUVORK5CYII=) no-repeat;background-size:contain;background-origin:content-box;padding:15px 5px;cursor:pointer}.flex-calendar .month .arrow:last-child{-webkit-transform:rotate(180deg);-ms-transform:rotate(180deg);transform:rotate(180deg)}.flex-calendar .days,.flex-calendar .week{line-height:25px;font-size:16px;display:flex;-webkit-flex-wrap:wrap;-ms-flex-wrap:wrap;flex-wrap:wrap}.flex-calendar .days{background-color:#FFF}.flex-calendar .week{background-color:#faac1c}.flex-calendar .days .day,.flex-calendar .week .day{-webkit-box-flex:0;-webkit-flex-grow:0;-ms-flex-positive:0;flex-grow:0;min-width:14.285714286%;text-align:center}.flex-calendar .days .day{min-height:60px;box-sizing:border-box;position:relative;line-height:60px;border-top:1px solid #FCFCFC;background-color:#fff;color:#8B8B8B;-webkit-transition:all .3s ease;transition:all .3s ease}.flex-calendar .days .day.out{background-color:#fCFCFC}.flex-calendar .days .day.disabled.today,.flex-calendar .days .day.today{color:#FFB835;border:1px solid}.flex-calendar .days .day.selected{display:flex;-webkit-flex-direction:row;-ms-flex-direction:row;flex-direction:row;-webkit-flex-wrap:nowrap;-ms-flex-wrap:nowrap;flex-wrap:nowrap;-webkit-box-pack:center;-webkit-justify-content:center;-ms-flex-pack:center;justify-content:center;-webkit-align-content:center;-ms-flex-line-pack:center;align-content:center;-webkit-box-align:center;-webkit-align-items:center;-ms-flex-align:center;align-items:center}.flex-calendar .days .day.selected .number{width:40px;height:40px;background-color:#FFB835;border-radius:100%;line-height:40px;color:#FFF}.flex-calendar .days .day:not(.disabled):not(.out){cursor:pointer}.flex-calendar .days .day.disabled{border:none}.flex-calendar .days .day.disabled .number{background-color:#EFEFEF;background-image:url(data:image/gif;base64,R0lGODlhBQAFAOMAAP/14////93uHt3uHt3uHt3uHv///////////wAAAAAAAAAAAAAAAAAAAAAAAAAAACH5BAEAAAAALAAAAAAFAAUAAAQL0ACAzpG0YnonNxEAOw==)}.flex-calendar .days .day.event:before{content:"";width:6px;height:6px;border-radius:100%;background-color:#faac1c;position:absolute;bottom:10px;margin-left:-3px}
+flex-calendar {
+   
+}
+
+
+/* Library  */
+.flex-calendar .days .day.selected,.flex-calendar .month{-webkit-box-orient:horizontal;-webkit-box-direction:normal}.flex-calendar .days,.flex-calendar .days .day.selected,.flex-calendar .month,.flex-calendar .week{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox}.flex-calendar{width:100%;min-height:50px;color:#FFF;font-weight:200}.flex-calendar .month{position:relative;display:flex;-webkit-flex-direction:row;-ms-flex-direction:row;flex-direction:row;-webkit-flex-wrap:nowrap;-ms-flex-wrap:nowrap;flex-wrap:nowrap;-webkit-box-pack:justify;-webkit-justify-content:space-between;-ms-flex-pack:justify;justify-content:space-between;-webkit-align-content:flex-start;-ms-flex-line-pack:start;align-content:flex-start;-webkit-box-align:start;-webkit-align-items:flex-start;-ms-flex-align:start;align-items:flex-start;background-color:#ffb835}.flex-calendar .month .arrow,.flex-calendar .month .label{height:60px;-webkit-box-ordinal-group:1;-webkit-order:0;-ms-flex-order:0;order:0;-webkit-box-flex:0;-webkit-flex:0 1 auto;-ms-flex:0 1 auto;flex:0 1 auto;-webkit-align-self:auto;-ms-flex-item-align:auto;align-self:auto;line-height:60px;font-size:20px}.flex-calendar .month .arrow{width:50px;box-sizing:border-box;background:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAABqUlEQVR4Xt3b0U3EMBCE4XEFUAolHB0clUFHUAJ0cldBkKUgnRDh7PWsd9Z5Tpz8nyxFspOCJMe2bU8AXgG8lFIurMcurIE8x9nj3wE8AvgE8MxCkAf4Ff/jTEOQBjiIpyLIAtyJpyFIAjTGUxDkADrjhxGkAIzxQwgyAIPxZgQJAFJ8RbgCOJVS6muy6QgHiIyvQqEA0fGhAArxYQAq8SEASvHTAdTipwIoxk8DUI2fAqAc7w6gHu8KkCHeDSBLvAtApng6QLZ4KkDGeBpA1ngKQOb4YYDs8UMAK8SbAVaJNwGsFN8NsFq8FeADwEPTmvPxSXV/v25xNy9fD97v8PLuVeF9FiyD0A1QKVdCMAGshGAGWAVhCGAFhGGA7AgUgMwINICsCFSAjAh0gGwILgCZENwAsiC4AmRAcAdQR5gCoIwwDUAVYSqAIsJ0ADWEEAAlhDAAFYRQAAWEcIBoBAkAIsLX/rV48291MgAEhO747o0Rr82J23GNS+6meEkAw0wwx8sCdCAMxUsDNCAMx8sD/INAiU8B8AcCLT4NwA3CG4Az68/xOu43keZ+UGLOkN4AAAAASUVORK5CYII=) no-repeat;background-size:contain;background-origin:content-box;padding:15px 5px;cursor:pointer;-webkit-transition:all .3s;-moz-transition:all .3s;-o-transition:all .3s;-ms-transition:all .3s;transition:all .3s}.flex-calendar .month .arrow:last-child{-webkit-transform:rotate(180deg);-ms-transform:rotate(180deg);transform:rotate(180deg)}.flex-calendar .month .arrow.visible{opacity:1;visibility:visible;cursor:pointer}.flex-calendar .month .arrow.hidden{opacity:0;visibility:hidden;cursor:default}.flex-calendar .days,.flex-calendar .week{line-height:25px;font-size:16px;display:flex;-webkit-flex-wrap:wrap;-ms-flex-wrap:wrap;flex-wrap:wrap}.flex-calendar .days{background-color:#FFF}.flex-calendar .week{background-color:#faac1c}.flex-calendar .days .day,.flex-calendar .week .day{-webkit-box-flex:0;-webkit-flex-grow:0;-ms-flex-positive:0;flex-grow:0;min-width:14.285714286%;text-align:center}.flex-calendar .days .day{min-height:60px;box-sizing:border-box;position:relative;line-height:60px;border-top:1px solid #FCFCFC;background-color:#fff;color:#8B8B8B;-webkit-transition:all .3s ease;transition:all .3s ease}.flex-calendar .days .day.out{background-color:#fCFCFC}.flex-calendar .days .day.disabled.today,.flex-calendar .days .day.today{color:#FFB835;border:1px solid}.flex-calendar .days .day.selected{display:flex;-webkit-flex-direction:row;-ms-flex-direction:row;flex-direction:row;-webkit-flex-wrap:nowrap;-ms-flex-wrap:nowrap;flex-wrap:nowrap;-webkit-box-pack:center;-webkit-justify-content:center;-ms-flex-pack:center;justify-content:center;-webkit-align-content:center;-ms-flex-line-pack:center;align-content:center;-webkit-box-align:center;-webkit-align-items:center;-ms-flex-align:center;align-items:center}.flex-calendar .days .day.selected .number{width:40px;height:40px;background-color:#FFB835;border-radius:100%;line-height:40px;color:#FFF}.flex-calendar .days .day:not(.disabled):not(.out){cursor:pointer}.flex-calendar .days .day.disabled{border:none}.flex-calendar .days .day.disabled .number{background-color:#EFEFEF;background-image:url(data:image/gif;base64,R0lGODlhBQAFAOMAAP/14////93uHt3uHt3uHt3uHv///////////wAAAAAAAAAAAAAAAAAAAAAAAAAAACH5BAEAAAAALAAAAAAFAAUAAAQL0ACAzpG0YnonNxEAOw==)}.flex-calendar .days .day.event:before{content:"";width:6px;height:6px;border-radius:100%;background-color:#faac1c;position:absolute;bottom:10px;margin-left:-3px}
     </style>
   </head>
   <body>
@@ -80,47 +81,46 @@
         </p>
       </div>
     </div>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.3.14/angular.min.js"></script>
-    <script type="text/javascript">
-      angular
-      .module('app',['flexcalendar'])
-      .controller('MainController', ['$scope', function($scope) {
-        $scope.options = {
-          defaultDate: new Date([2015, 06, 23]),
-          minDate: new Date([2015, 06, 10]),
-          maxDate: new Date([2015, 12, 31]),
-          disabledDates: [
-            new Date([2015,06,22]),
-            new Date([2015,06,26]),
-            new Date([2015,06,27]),
-            new Date([2015,07,5]),
-            new Date([2015,07,6]),
-            new Date([2015,07,7]),
-            new Date([2015,07,8]),
-            new Date([2015,07,9]),
-            new Date([2015,07,10]),
-            new Date([2015,07,11]),
-          ],
-        dayNamesLength: 1,
-        eventClick: function(date) {
-          console.log(date);
-        },
-        dateClick: function(date) {
-          console.log(date);
-        },
-        changeMonth: function(month) {
-          console.log(month);
-        }
-      };
 
-      $scope.events = [
-        {foo: 'bar', date: new Date([2015, 6, 24])},
-        {foo: 'bar', date: new Date([2015, 6, 19])}
-      ];
-      }])
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.0/angular.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-translate/2.7.2/angular-translate.js"></script>
+    <script>
+      // Git Repo: https://github.com/Russian60/flex-calendar
 
-      // Library
-      !function(){function e(){var e='<div class="flex-calendar"><div class="month"><div class="arrow" ng-click="prevMonth()"></div><div class="label">{{selectedMonth}} {{selectedYear}}</div><div class="arrow" ng-click="nextMonth()"></div></div><div class="week"><div class="day" ng-repeat="day in weekDays(options.dayNamesLength) track by $index">{{day}}</div></div><div class="days"><div class="day"ng-repeat="day in days  track by $index"ng-class="{selected: isDefaultDate(day), event: day.event, disabled: day.disabled, out: !day}"ng-click="onClick(day, $index)"><div class="number">{{day.day}}</div></div></div></div>',n={restrict:"E",scope:{options:"=?",events:"=?"},template:e,controller:t};return n}function t(e){function t(t){t&&!t.disabled&&(e.options.defaultDate=t.date,t.event?e.options.eventClick(t):e.options.dateClick(t))}function n(t){t&&e.events&&e.events.forEach(function(e){e.date=new Date(e.date),t.year===e.date.getFullYear()&&t.month===e.date.getMonth()&&t.day===e.date.getDate()&&(t.event=e)})}function a(t){if(!e.options.minDate&&!e.options.maxDate)return!0;var n=new Date([t.year,t.month+1,t.day]);return e.options.minDate&&n<e.options.minDate?!1:e.options.maxDate&&n>e.options.maxDate?!1:!0}function o(t){if(!e.options.disabledDates)return!1;for(var n=0;n<e.options.disabledDates.length;n++)if(t.year===e.options.disabledDates[n].getFullYear()&&t.month===e.options.disabledDates[n].getMonth()&&t.day===e.options.disabledDates[n].getDate())return!0}function i(){var t=null,n=null;if(!e.options.minDate)return!0;var a=h.indexOf(e.selectedMonth);return t=0===a?e.selectedYear-1:e.selectedYear,n=0===a?11:a-1,t<e.options.minDate.getFullYear()?!1:t===e.options.minDate.getFullYear()&&n<e.options.minDate.getMonth()?!1:!0}function s(){var t=null,n=null;if(!e.options.maxDate)return!0;var a=h.indexOf(e.selectedMonth);return t=11===a?e.selectedYear+1:e.selectedYear,n=11===a?0:a+1,t>e.options.maxDate.getFullYear()?!1:t===e.options.maxDate.getFullYear()&&n>e.options.maxDate.getMonth()?!1:!0}function d(){e.days=e.weeks.reduce(function(e,t){return e.concat(t)})}function l(){e.weeks=[];for(var t=null,i=new Date(e.selectedYear,h.indexOf(e.selectedMonth)+1,0).getDate(),s=1;i+1>s;s+=1){var l=new Date(e.selectedYear,h.indexOf(e.selectedMonth),s),r=new Date(e.selectedYear,h.indexOf(e.selectedMonth),s).getDay();t=t||[null,null,null,null,null,null,null],t[r]={year:e.selectedYear,month:h.indexOf(e.selectedMonth),day:s,date:l,_month:l.getMonth()+1},a(t[r])?e.events&&n(t[r]):t[r].disabled=!0,t[r]&&o(t[r])&&(t[r].disabled=!0),(6===r||s===i)&&(e.weeks.push(t),t=void 0)}d()}function r(){e.options._defaultDate=e.options.defaultDate?new Date(e.options.defaultDate):new Date,e.selectedYear=e.options._defaultDate.getFullYear(),e.selectedMonth=h[e.options._defaultDate.getMonth()],e.selectedDay=e.options._defaultDate.getDate(),l()}function c(){if(e.options.disabledDates&&0!==e.options.disabledDates.length){for(var t=0;t<e.options.disabledDates.length;t++)e.options.disabledDates[t]=new Date(e.options.disabledDates[t]);l()}}function u(e){return v.map(function(t){return t.slice(0,e)})}function D(t){if(t){var n=t.year===e.options._defaultDate.getFullYear()&&t.month===e.options._defaultDate.getMonth()&&t.day===e.options._defaultDate.getDate();return n}}function p(){if(e.allowedPrevMonth()){var t=h.indexOf(e.selectedMonth);0===t?(e.selectedYear-=1,e.selectedMonth=h[11]):e.selectedMonth=h[t-1];var n={name:e.selectedMonth,index:t-1,_index:t+2};e.options.changeMonth(n),l()}}function f(){if(e.allowedNextMonth()){var t=h.indexOf(e.selectedMonth);11===t?(e.selectedYear+=1,e.selectedMonth=h[0]):e.selectedMonth=h[t+1];var n={name:e.selectedMonth,index:t+1,_index:t+2};e.options.changeMonth(n),l()}}var r,l,a,n,h=["Janeiro","Fevereiro","Março","Abril","Maio","Junho","Julho","Agosto","Setembro","Outubro","Novembro","Dezembro"],v=["Domingo","Segunda","Terça","Quarta","Quinta","Sexta","Sábado"];e.days=[],e.options=e.options||{},e.options.dayNamesLength=e.options.dayNamesLength||1,e.onClick=t,e.allowedPrevMonth=i,e.allowedNextMonth=s,e.weekDays=u,e.isDefaultDate=D,e.prevMonth=p,e.nextMonth=f,e.options.minDate&&(e.options.minDate=new Date(e.options.minDate)),e.options.maxDate&&(e.options.maxDate=new Date(e.options.maxDate)),e.$watch("options.defaultDate",function(){r()}),e.$watch("options.disabledDates",function(){c()}),e.$watch("events",function(){l()})}angular.module("flexcalendar",[]).directive("flexCalendar",e),t.$inject=["$scope"]}();
+angular
+  .module('app',['flexcalendar', 'pascalprecht.translate'])
+  .controller('MainController', ['$scope', function($scope) {
+    $scope.options = {
+    defaultDate: "2015-08-06",
+    minDate: "2015-01-01",
+    maxDate: "2015-12-31",
+    disabledDates: [
+        "2015-06-22",
+        "2015-07-27",
+        "2015-08-13",
+        "2015-08-15"
+    ],
+    dayNamesLength: 1, // 1 for "M", 2 for "Mo", 3 for "Mon"; 9 will show full day names. Default is 1.
+    mondayIsFirstDay: true,//set monday as first day of week. Default is false
+    eventClick: function(date) {
+      console.log(date);
+    },
+    dateClick: function(date) {
+      console.log(date);
+    },
+    changeMonth: function(month, year) {
+      console.log(month, year);
+    },
+  };
+
+  $scope.events = [
+    {foo: 'bar', date: "2015-08-18"},
+    {foo: 'bar', date: "2015-08-20"}
+  ];
+}])
+
+// Library
+!function(){"use strict";function e(){var e='<div class="flex-calendar"><div class="month"><div class="arrow {{arrowPrevClass}}" ng-click="prevMonth()"></div><div class="label">{{ selectedMonth | translate }} {{selectedYear}}</div><div class="arrow {{arrowNextClass}}" ng-click="nextMonth()"></div></div><div class="week"><div class="day" ng-repeat="day in weekDays(options.dayNamesLength) track by $index">{{ day }}</div></div><div class="days" ng-repeat="week in weeks"><div class="day"ng-repeat="day in week track by $index"ng-class="{selected: isDefaultDate(day), event: day.event[0], disabled: day.disabled, out: !day}"ng-click="onClick(day, $index, $event)"><div class="number">{{day.day}}</div></div></div></div>',a={restrict:"E",scope:{options:"=?",events:"=?"},template:e,controller:t};return a}function t(e,t){function a(){e.mappedDisabledDates=e.options.disabledDates.map(function(e){return new Date(e)})}function n(){e.mappedEvents=e.events.map(function(e){return e.date=new Date(e.date),e})}function o(t,a,n){t&&!t.disabled&&(e.options.defaultDate=t.date,0!=t.event.length?e.options.eventClick(t,n):e.options.dateClick(t,n))}function s(t){t&&e.mappedEvents&&(t.event=[],e.mappedEvents.forEach(function(e){t.date.getFullYear()===e.date.getFullYear()&&t.date.getMonth()===e.date.getMonth()&&t.date.getDate()===e.date.getDate()&&t.event.push(e)}))}function i(t){if(!e.options.minDate&&!e.options.maxDate)return!0;var a=t.date;return e.options.minDate&&a<e.options.minDate?!1:e.options.maxDate&&a>e.options.maxDate?!1:!0}function d(t){if(!e.mappedDisabledDates)return!1;for(var a=0;a<e.mappedDisabledDates.length;a++)if(t.year===e.mappedDisabledDates[a].getFullYear()&&t.month===e.mappedDisabledDates[a].getMonth()&&t.day===e.mappedDisabledDates[a].getDate())return!0}function l(){var t=null,a=null;if(!e.options.minDate)return!0;var n=M.indexOf(e.selectedMonth);return 0===n?(t=e.selectedYear-1,a=11):(t=e.selectedYear,a=n-1),t<e.options.minDate.getFullYear()?!1:t===e.options.minDate.getFullYear()&&a<e.options.minDate.getMonth()?!1:!0}function r(){var t=null,a=null;if(!e.options.maxDate)return!0;var n=M.indexOf(e.selectedMonth);return 11===n?(t=e.selectedYear+1,a=0):(t=e.selectedYear,a=n+1),t>e.options.maxDate.getFullYear()?!1:t===e.options.maxDate.getFullYear()&&a>e.options.maxDate.getMonth()?!1:!0}function c(){e.weeks=[];for(var t=null,a=new Date(e.selectedYear,M.indexOf(e.selectedMonth)+1,0).getDate(),n=1;a+1>n;n+=1){var o=new Date(e.selectedYear,M.indexOf(e.selectedMonth),n),l=new Date(e.selectedYear,M.indexOf(e.selectedMonth),n).getDay();e.options.mondayIsFirstDay&&(l=(l+6)%7),t=t||[null,null,null,null,null,null,null],t[l]={year:e.selectedYear,month:M.indexOf(e.selectedMonth),day:n,date:o,_month:o.getMonth()+1},i(t[l])?e.mappedEvents&&s(t[l]):t[l].disabled=!0,t[l]&&d(t[l])&&(t[l].disabled=!0),(6===l||n===a)&&(e.weeks.push(t),t=void 0)}e.arrowPrevClass=e.allowedPrevMonth()?"visible":"hidden",e.arrowNextClass=e.allowedNextMonth()?"visible":"hidden"}function D(){e.options._defaultDate=e.options.defaultDate?new Date(e.options.defaultDate):new Date,e.selectedYear=e.options._defaultDate.getFullYear(),e.selectedMonth=M[e.options._defaultDate.getMonth()],e.selectedDay=e.options._defaultDate.getDate(),c()}function p(){if(e.mappedDisabledDates&&0!==e.mappedDisabledDates.length){for(var t=0;t<e.mappedDisabledDates.length;t++)e.mappedDisabledDates[t]=new Date(e.mappedDisabledDates[t]);c()}}function u(e){return g.map(function(t){return m(t).slice(0,e)})}function v(t){if(t){var a=t.year===e.options._defaultDate.getFullYear()&&t.month===e.options._defaultDate.getMonth()&&t.day===e.options._defaultDate.getDate();return a}}function f(){if(e.allowedPrevMonth()){var t=M.indexOf(e.selectedMonth);0===t?(e.selectedYear-=1,e.selectedMonth=M[11]):e.selectedMonth=M[t-1];var a={name:e.selectedMonth,index:t-1,_index:t+2};e.options.changeMonth(a,e.selectedYear),c()}}function h(){if(e.allowedNextMonth()){var t=M.indexOf(e.selectedMonth);11===t?(e.selectedYear+=1,e.selectedMonth=M[0]):e.selectedMonth=M[t+1];var a={name:e.selectedMonth,index:t+1,_index:t+2};e.options.changeMonth(a,e.selectedYear),c()}}e.days=[],e.options=e.options||{},e.events=e.events||[],e.options.dayNamesLength=e.options.dayNamesLength||1,e.options.mondayIsFirstDay=e.options.mondayIsFirstDay||!1,e.onClick=o,e.allowedPrevMonth=l,e.allowedNextMonth=r,e.weekDays=u,e.isDefaultDate=v,e.prevMonth=f,e.nextMonth=h,e.arrowPrevClass="visible",e.arrowNextClass="visible";var m=t("translate"),M=["JANUARY","FEBRUARY","MARCH","APRIL","MAI","JUNE","JULY","AUGUST","SEPTEMBER","OCTOBER","NOVEMBER","DECEMBER"],g=["SUNDAY","MONDAY","TUESDAY","WEDNESDAY","THURSDAY","FRIDAY","SATURDAY"];if(e.options.mondayIsFirstDay){var y=g.shift();g.push(y)}e.options.minDate&&(e.options.minDate=new Date(e.options.minDate)),e.options.maxDate&&(e.options.maxDate=new Date(e.options.maxDate)),e.options.disabledDates&&a(),e.events&&n(),e.$watch("options.defaultDate",function(){D()}),e.$watch("options.disabledDates",function(){a(),p()}),e.$watch("events",function(){n(),c()})}angular.module("flexcalendar",[]).directive("flexCalendar",e),t.$inject=["$scope","$filter"]}();
     </script>
   </body>
 </html>
