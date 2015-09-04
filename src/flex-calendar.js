@@ -110,8 +110,10 @@
       });
 
       $scope.$watch('options.disabledDates', function() {
-        createMappedDisabledDates();
-        calculateDisabledDates();
+        if($scope.options.disabledDates) {
+            createMappedDisabledDates();
+            calculateDisabledDates();
+        }
       });
 
       $scope.$watch('events', function() {
