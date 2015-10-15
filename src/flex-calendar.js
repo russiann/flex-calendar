@@ -122,6 +122,13 @@
         calculateWeeks();
       });
 
+      $scope.$watch('selectedYear', function(year, previousYear) {
+        if(year !== previousYear) calculateWeeks();
+      });
+      $scope.$watch('selectedMonth', function(month, previousMonth) {
+        if(month !== previousMonth) calculateWeeks();
+      });
+
       /////////////////
 
       function onClick(date, index, domEvent) {
@@ -256,7 +263,6 @@
         $scope.selectedYear  = $scope.options._defaultDate.getFullYear();
         $scope.selectedMonth = MONTHS[$scope.options._defaultDate.getMonth()];
         $scope.selectedDay   = $scope.options._defaultDate.getDate();
-        calculateWeeks();
       }
 
       function calculateDisabledDates() {
