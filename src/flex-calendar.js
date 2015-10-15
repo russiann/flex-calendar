@@ -122,6 +122,21 @@
         calculateWeeks();
       });
 
+      $scope.$watch('weeks', function(weeks) {
+        var filteredEvents = [];
+        angular.forEach(weeks, function(week) {
+          angular.forEach(week.events, function(events) {
+            angular.forEach(events, function(event) {
+              filteredEvents.push(event);
+            });
+          });
+        });
+        $scope.filteredEvents = filteredEvents;
+        if('function' === typeof $scope.options.filteredEventsChange){
+          $scope.options.filteredEventsChange($scope.filteredEvents);
+        }
+      });
+
       $scope.$watch('selectedYear', function(year, previousYear) {
         if(year !== previousYear) calculateWeeks();
       });
