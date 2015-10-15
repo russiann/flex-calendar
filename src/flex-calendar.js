@@ -125,15 +125,16 @@
       $scope.$watch('weeks', function(weeks) {
         var filteredEvents = [];
         angular.forEach(weeks, function(week) {
-          angular.forEach(week.events, function(events) {
-            angular.forEach(events, function(event) {
-              filteredEvents.push(event);
-            });
+          angular.forEach(week, function (day){
+            if(day && day.event){
+              angular.forEach(day.event, function(event) {
+                filteredEvents.push(event);
+              });
+            }
           });
         });
-        $scope.filteredEvents = filteredEvents;
         if('function' === typeof $scope.options.filteredEventsChange){
-          $scope.options.filteredEventsChange($scope.filteredEvents);
+          $scope.options.filteredEventsChange(filteredEvents);
         }
       });
 
