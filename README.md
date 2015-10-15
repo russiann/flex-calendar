@@ -60,6 +60,9 @@ app.controller('myController', ['$scope', function($scope) {
     changeMonth: function(month, year) {
       console.log(month, year);
     },
+    filteredEventsChange: function(filteredEvents) {
+      console.log(filteredEvents);
+    },
   };
 
   $scope.events = [
