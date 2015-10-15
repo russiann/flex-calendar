@@ -91,6 +91,7 @@
       }
 
       function createMappedDisabledDates(){
+        if(!$scope.options.disabledDates) return;
         $scope.mappedDisabledDates = $scope.options.disabledDates.map(function(date)
         {
           return new Date(date);
