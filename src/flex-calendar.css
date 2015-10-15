@@ -190,13 +190,24 @@
   background-image: url('data:image/gif;base64,R0lGODlhBQAFAOMAAP/14////93uHt3uHt3uHt3uHv///////////wAAAAAAAAAAAAAAAAAAAAAAAAAAACH5BAEAAAAALAAAAAAFAAUAAAQL0ACAzpG0YnonNxEAOw==');
 }
 
-.flex-calendar .days .day.event:before {
-  content: "";
+.flex-calendar .days .day {
+  text-align: center;
+}
+
+.flex-calendar .days .event {
+  display: inline-block;
   width: 6px;
   height: 6px;
-  border-radius:100%;
+  margin: 2px;
+  border-radius: 100%;
   background-color: #faac1c;
-  position:absolute;
-  bottom:10px;
-  margin-left:-3px;
+}
+
+.flex-calendar .days .events {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  line-height: 6px;
+  height: 10px;
+  width: 100%;
 }

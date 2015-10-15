@@ -19,10 +19,11 @@
         '<div class="days" ng-repeat="week in weeks">'+
           '<div class="day"'+
             'ng-repeat="day in week track by $index"'+
-            'ng-class="{selected: isDefaultDate(day), event: day.event[0], disabled: day.disabled, out: !day}"'+
+            'ng-class="{selected: isDefaultDate(day), disabled: day.disabled, out: !day}"'+
             'ng-click="onClick(day, $index, $event)"'+
           '>'+
             '<div class="number">{{day.day}}</div>'+
+            '<div class="events"><span class="event" ng-style="{\'background-color\': event.color || \'#faac1c\'}" ng-repeat="event in day.event"></span></div>'+
           '</div>'+
         '</div>'+
       '</div>';
