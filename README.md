@@ -51,10 +51,10 @@ app.controller('myController', ['$scope', function($scope) {
     ],
     dayNamesLength: 1, // 1 for "M", 2 for "Mo", 3 for "Mon"; 9 will show full day names. Default is 1.
     mondayIsFirstDay: true,//set monday as first day of week. Default is false
-    eventClick: function(date) {
+    eventClick: function(date) { // called before dateClick and only if clicked day has events
       console.log(date);
     },
-    dateClick: function(date) {
+    dateClick: function(date) { // called every time a day is clicked
       console.log(date);
     },
     changeMonth: function(month, year) {

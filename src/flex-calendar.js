@@ -6,7 +6,7 @@
     .directive('flexCalendar', flexCalendar);
 
   var defaultTranslation = angular
-    .module('flexcalendar.defaultTranslation', ['pascalprecht.translate'])
+    .module('flexcalendar.defaultTranslation', ['flexcalendar'])
     .config(defaultTranslationConfig);
     
   defaultTranslationConfig.$inject = ['$translateProvider'];
@@ -184,13 +184,11 @@
     function onClick(date, index, domEvent) {
       if (!date || date.disabled) { return; }
       $scope.options.defaultDate = date.date;
-      if (date.event.length != 0) {
+      if (date.event.length && $scope.options.eventClick) {
         $scope.options.eventClick(date, domEvent);
       }
-      else
-      {
-        $scope.options.dateClick(date, domEvent);
-      }
+      
+      $scope.options.dateClick(date, domEvent);
     }
 
     function bindEvent(date) {
@@ -346,7 +344,6 @@
       }
       var month = {name: $scope.selectedMonth, index: currIndex - 1, _index: currIndex+2 };
       $scope.options.changeMonth(month, $scope.selectedYear);
-      calculateWeeks();
     }
 
     function nextMonth() {
@@ -360,7 +357,6 @@
       }
       var month = {name: $scope.selectedMonth, index: currIndex + 1, _index: currIndex+2 };
       $scope.options.changeMonth(month, $scope.selectedYear);
-      calculateWeeks();
     }
 
     function getDayClass(day){
