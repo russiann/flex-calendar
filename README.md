@@ -73,7 +73,13 @@ app.controller('myController', ['$scope', function($scope) {
 ```
 
 ## Translate
-English translation is added by default. If you need other translations, inject ``'pascalprecht.translate'`` into your main module:
+To add default English translation, inject ``'flexcalendar.defaultTranslation'`` into your main module:
+
+```javascript
+angular.module('App', ['flexcalendar' , 'flexcalendar.defaultTranslation'])
+``` 
+
+If you need other translations, inject ``'pascalprecht.translate'`` into your main module:
 
 ```javascript
 angular.module('App', ['flexcalendar' , 'pascalprecht.translate'])
@@ -83,6 +89,28 @@ and configure your app
 
 ```javascript
 app.config(function ($translateProvider) {
+  $translateProvider.translations('en', {
+      JANUARY: 'January',
+      FEBRUARY: 'February',
+      MARCH: 'March',
+      APRIL: 'April',
+      MAI: 'Mai',
+      JUNE: 'June',
+      JULY: 'July',
+      AUGUST: 'August',
+      SEPTEMBER: 'September',
+      OCTOBER: 'October',
+      NOVEMBER: 'November',
+      DECEMBER: 'December',
+
+      SUNDAY: 'Sunday',
+      MONDAY: 'Monday',
+      TUESDAY: 'Tuesday',
+      WEDNESDAY: 'Wednesday',
+      THURSDAY: 'Thurday',
+      FRIDAY: 'Friday',
+      SATURDAY: 'Saturday'
+  });
   $translateProvider.translations('fr', {
       JANUARY: 'Janvier',
       FEBRUARY: 'Févier',

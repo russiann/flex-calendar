@@ -1,11 +1,14 @@
 (function(){
   "use strict";
   
-  angular
+  var app = angular
     .module('flexcalendar', ['pascalprecht.translate'])
-    .config(defaultTranslationConfig)
     .directive('flexCalendar', flexCalendar);
 
+  var defaultTranslation = angular
+    .module('flexcalendar.defaultTranslation', ['pascalprecht.translate'])
+    .config(defaultTranslationConfig);
+    
   defaultTranslationConfig.$inject = ['$translateProvider'];
   function defaultTranslationConfig($translateProvider){
     $translateProvider.translations('en', {
