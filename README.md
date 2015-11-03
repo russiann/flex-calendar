@@ -23,10 +23,10 @@ Add to index.html:
 <script type="text/javascript" src="bower_components/flex-calendar.js"></script>
 ```
 
-Inject ``'flex-calendar'`` and ``'pascalprecht.translate'`` into your main module:
+Inject ``'flex-calendar'`` into your main module:
 
 ```javascript
-angular.module('App', ['flexcalendar' , 'pascalprecht.translate'])
+angular.module('App', ['flexcalendar'])
 ```
 
 Add ``<flex-calendar options="options" events="events"></flex-calendar>`` directive to your html file.
@@ -73,30 +73,16 @@ app.controller('myController', ['$scope', function($scope) {
 ```
 
 ## Translate
+English translation is added by default. If you need other translations, inject ``'pascalprecht.translate'`` into your main module:
+
+```javascript
+angular.module('App', ['flexcalendar' , 'pascalprecht.translate'])
+``` 
+
+and configure your app
+
 ```javascript
 app.config(function ($translateProvider) {
-  $translateProvider.translations('en', {
-    JANUARY: 'January',
-    FEBRUARY: 'February',
-    MARCH: 'March',
-    APRIL: 'April',
-    MAI: 'Mai',
-    JUNE: 'June',
-    JULY: 'July',
-    AUGUST: 'August',
-    SEPTEMBER: 'September',
-    OCTOBER: 'October',
-    NOVEMBER: 'November',
-    DECEMBER: 'December',
-
-    SUNDAY: 'Sunday',
-    MONDAY: 'Monday',
-    TUESDAY: 'Tuesday',
-    WEDNESDAY: 'Wednesday',
-    THURSDAY: 'Thurday',
-    FRIDAY: 'Friday',
-    SATURDAY: 'Saturday'
-  });
   $translateProvider.translations('fr', {
       JANUARY: 'Janvier',
       FEBRUARY: 'Févier',
@@ -142,7 +128,6 @@ app.config(function ($translateProvider) {
       SATURDAY: 'Sábado'
   });
   $translateProvider.preferredLanguage('fr');
-  $translateProvider.useSanitizeValueStrategy('escape');
 });
 ```
 
