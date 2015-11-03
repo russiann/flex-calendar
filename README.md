@@ -66,7 +66,7 @@ app.controller('myController', ['$scope', function($scope) {
   };
 
   $scope.events = [
-    {foo: 'bar', date: "2015-08-18"},
+    {foo: 'bar', eventClass: 'expired', date: "2015-08-18"}, //value of eventClass will be added to CSS class of the day element
     {foo: 'bar', date: "2015-08-20"}
   ];
 }]);

@@ -52,7 +52,7 @@
       '<div class="days" ng-repeat="week in weeks">'+
         '<div class="day"'+
           'ng-repeat="day in week track by $index"'+
-          'ng-class="{selected: isDefaultDate(day), event: day.event[0], disabled: day.disabled, out: !day}"'+
+          'ng-class="[getDayClass(day), {selected: isDefaultDate(day), event: day.event[0], disabled: day.disabled, out: !day}]"'+
           'ng-click="onClick(day, $index, $event)"'+
         '>'+
           '<div class="number">{{day.day}}</div>'+
@@ -90,6 +90,8 @@
     $scope.isDefaultDate = isDefaultDate;
     $scope.prevMonth = prevMonth;
     $scope.nextMonth = nextMonth;
+
+    $scope.getDayClass = getDayClass;
 
     $scope.arrowPrevClass = "visible";
     $scope.arrowNextClass = "visible";
@@ -359,6 +361,14 @@
       var month = {name: $scope.selectedMonth, index: currIndex + 1, _index: currIndex+2 };
       $scope.options.changeMonth(month, $scope.selectedYear);
       calculateWeeks();
+    }
+
+    function getDayClass(day){
+      if (!day || !day.event || day.event.length === 0){
+        return '';
+      }
+
+      return day.event.map(function(e){return e.eventClass||'';}).join(' ');
     }
   }
 
