@@ -304,13 +304,16 @@
       function prevMonth() {
         if (!$scope.allowedPrevMonth()) { return; }
         var currIndex = MONTHS.indexOf($scope.selectedMonth);
+        var newIndex;
         if (currIndex === 0) {
           $scope.selectedYear -= 1;
           $scope.selectedMonth = MONTHS[11];
+          newIndex = 11;
         } else {
           $scope.selectedMonth = MONTHS[currIndex - 1];
+          newIndex = currIndex - 1;
         }
-        var month = {name: $scope.selectedMonth, index: currIndex - 1, _index: currIndex+2 };
+        var month = {name: $scope.selectedMonth, index: newIndex, _index: currIndex+2 };
         $scope.options.changeMonth(month, $scope.selectedYear);
         calculateWeeks();
       }
@@ -318,13 +321,16 @@
       function nextMonth() {
         if (!$scope.allowedNextMonth()) { return; }
         var currIndex = MONTHS.indexOf($scope.selectedMonth);
+        var newIndex;
         if (currIndex === 11) {
           $scope.selectedYear += 1;
           $scope.selectedMonth = MONTHS[0];
+          newIndex = 0;
         } else {
           $scope.selectedMonth = MONTHS[currIndex + 1];
+          newIndex = currIndex + 1;
         }
-        var month = {name: $scope.selectedMonth, index: currIndex + 1, _index: currIndex+2 };
+        var month = {name: $scope.selectedMonth, index: newIndex, _index: currIndex+2 };
         $scope.options.changeMonth(month, $scope.selectedYear);
         calculateWeeks();
       }
