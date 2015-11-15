@@ -124,6 +124,8 @@
       createMappedEvents();
     }
 
+    registerEvents();
+
     function createMappedDisabledDates(){
       if(!$scope.options.disabledDates) return;
       $scope.mappedDisabledDates = $scope.options.disabledDates.map(function(date)
@@ -138,6 +140,14 @@
         obj.date = new Date(obj.date);
         return obj;
       });
+    }
+
+    function registerEvents(){
+      var prevMonthEvent = $scope.options.prevMonthEvent || 'flexcalendar:prevMonthEvent';
+      $scope.$on(prevMonthEvent, prevMonth);
+
+      var nextMonthEvent = $scope.options.nextMonthEvent || 'flexcalendar:nextMonthEvent';
+      $scope.$on(nextMonthEvent, nextMonth);
     }
 
     $scope.$watch('options.defaultDate', function() {
