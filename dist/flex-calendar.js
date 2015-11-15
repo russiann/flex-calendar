@@ -6,7 +6,7 @@
     .directive('flexCalendar', flexCalendar);
 
   var defaultTranslation = angular
-    .module('flexcalendar.defaultTranslation', ['pascalprecht.translate'])
+    .module('flexcalendar.defaultTranslation', ['flexcalendar'])
     .config(defaultTranslationConfig);
     
   defaultTranslationConfig.$inject = ['$translateProvider'];
@@ -124,6 +124,8 @@
       createMappedEvents();
     }
 
+    registerEvents();
+
     function createMappedDisabledDates(){
       if(!$scope.options.disabledDates) return;
       $scope.mappedDisabledDates = $scope.options.disabledDates.map(function(date)
@@ -138,6 +140,14 @@
         obj.date = new Date(obj.date);
         return obj;
       });
+    }
+
+    function registerEvents(){
+      var prevMonthEvent = $scope.options.prevMonthEvent || 'flexcalendar:prevMonthEvent';
+      $scope.$on(prevMonthEvent, prevMonth);
+
+      var nextMonthEvent = $scope.options.nextMonthEvent || 'flexcalendar:nextMonthEvent';
+      $scope.$on(nextMonthEvent, nextMonth);
     }
 
     $scope.$watch('options.defaultDate', function() {
@@ -184,13 +194,11 @@
     function onClick(date, index, domEvent) {
       if (!date || date.disabled) { return; }
       $scope.options.defaultDate = date.date;
-      if (date.event.length != 0) {
+      if (date.event.length && $scope.options.eventClick) {
         $scope.options.eventClick(date, domEvent);
       }
-      else
-      {
-        $scope.options.dateClick(date, domEvent);
-      }
+      
+      $scope.options.dateClick(date, domEvent);
     }
 
     function bindEvent(date) {
@@ -346,7 +354,6 @@
       }
       var month = {name: $scope.selectedMonth, index: currIndex - 1, _index: currIndex+2 };
       $scope.options.changeMonth(month, $scope.selectedYear);
-      calculateWeeks();
     }
 
     function nextMonth() {
@@ -360,7 +367,6 @@
       }
       var month = {name: $scope.selectedMonth, index: currIndex + 1, _index: currIndex+2 };
       $scope.options.changeMonth(month, $scope.selectedYear);
-      calculateWeeks();
     }
 
     function getDayClass(day){
