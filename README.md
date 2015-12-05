@@ -23,10 +23,10 @@ Add to index.html:
 <script type="text/javascript" src="bower_components/flex-calendar.js"></script>
 ```
 
-Inject ``'flex-calendar'`` and ``'pascalprecht.translate'`` into your main module:
+Inject ``'flex-calendar'`` into your main module:
 
 ```javascript
-angular.module('App', ['flexcalendar' , 'pascalprecht.translate'])
+angular.module('App', ['flexcalendar'])
 ```
 
 Add ``<flex-calendar options="options" events="events"></flex-calendar>`` directive to your html file.
@@ -51,10 +51,10 @@ app.controller('myController', ['$scope', function($scope) {
     ],
     dayNamesLength: 1, // 1 for "M", 2 for "Mo", 3 for "Mon"; 9 will show full day names. Default is 1.
     mondayIsFirstDay: true,//set monday as first day of week. Default is false
-    eventClick: function(date) {
+    eventClick: function(date) { // called before dateClick and only if clicked day has events
       console.log(date);
     },
-    dateClick: function(date) {
+    dateClick: function(date) { // called every time a day is clicked
       console.log(date);
     },
     changeMonth: function(month, year) {
@@ -66,36 +66,50 @@ app.controller('myController', ['$scope', function($scope) {
   };
 
   $scope.events = [
-    {foo: 'bar', date: "2015-08-18"},
+    {foo: 'bar', eventClass: 'expired', date: "2015-08-18"}, //value of eventClass will be added to CSS class of the day element
     {foo: 'bar', date: "2015-08-20"}
   ];
 }]);
 ```
 
 ## Translate
+To add default English translation, inject ``'flexcalendar.defaultTranslation'`` into your main module:
+
+```javascript
+angular.module('App', ['flexcalendar' , 'flexcalendar.defaultTranslation'])
+``` 
+
+If you need other translations, inject ``'pascalprecht.translate'`` into your main module:
+
+```javascript
+angular.module('App', ['flexcalendar' , 'pascalprecht.translate'])
+``` 
+
+and configure your app
+
 ```javascript
 app.config(function ($translateProvider) {
   $translateProvider.translations('en', {
-    JANUARY: 'January',
-    FEBRUARY: 'February',
-    MARCH: 'March',
-    APRIL: 'April',
-    MAI: 'Mai',
-    JUNE: 'June',
-    JULY: 'July',
-    AUGUST: 'August',
-    SEPTEMBER: 'September',
-    OCTOBER: 'October',
-    NOVEMBER: 'November',
-    DECEMBER: 'December',
+      JANUARY: 'January',
+      FEBRUARY: 'February',
+      MARCH: 'March',
+      APRIL: 'April',
+      MAI: 'Mai',
+      JUNE: 'June',
+      JULY: 'July',
+      AUGUST: 'August',
+      SEPTEMBER: 'September',
+      OCTOBER: 'October',
+      NOVEMBER: 'November',
+      DECEMBER: 'December',
 
-    SUNDAY: 'Sunday',
-    MONDAY: 'Monday',
-    TUESDAY: 'Tuesday',
-    WEDNESDAY: 'Wednesday',
-    THURSDAY: 'Thurday',
-    FRIDAY: 'Friday',
-    SATURDAY: 'Saturday'
+      SUNDAY: 'Sunday',
+      MONDAY: 'Monday',
+      TUESDAY: 'Tuesday',
+      WEDNESDAY: 'Wednesday',
+      THURSDAY: 'Thurday',
+      FRIDAY: 'Friday',
+      SATURDAY: 'Saturday'
   });
   $translateProvider.translations('fr', {
       JANUARY: 'Janvier',
@@ -142,7 +156,6 @@ app.config(function ($translateProvider) {
       SATURDAY: 'Sábado'
   });
   $translateProvider.preferredLanguage('fr');
-  $translateProvider.useSanitizeValueStrategy('escape');
 });
 ```
 
