@@ -161,7 +161,7 @@
       }
     });
 
-    $scope.$watch('events', function() {
+    $scope.$watchCollection('events', function() {
       createMappedEvents();
       calculateWeeks();
     });
